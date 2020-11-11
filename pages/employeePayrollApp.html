@@ -163,7 +163,21 @@
     <div class="row-content">
         <label class="label text" for="department">Department</label>
         <div>
-            <input
+            <input class="checkbox" type="checkbox" id="hr" name="hr" value="HR">
+            <label class="text" for="hr">HR</label>
+            <input class="checkbox" type="checkbox" id="sales" name="sales" value="Sales">
+            <label class="text" for="sales">Sales</label>
+            <input class="checkbox" type="checkbox" id="finance" name="finance" value="Finance">
+            <label class="text" for="sales">Finance</label>
+            <input class="checkbox" type="checkbox" id="engineer" name="engineer" value="Engineer">
+            <label class="text" for="sales">Finance</label>
+        </div>
+    </div>
+    <div>
+        <div class="row-content">
+            <label class="label text" for="salary">Choose your salary</label>
+            <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000" type="text">
+            <output class="salary-output text" for="salary">400000</output>
         </div>
     </div>
 </body>
