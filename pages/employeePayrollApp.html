@@ -44,7 +44,7 @@
         *{
             box-sizing: border-box;
         }
-                .form-content{
+        .form-content{
             min-height: calc(100%-80px);
             background-color: #f7f7f7;
             display: flex;
@@ -109,6 +109,16 @@
             border-radius: 50%;
             margin-left: 12px;
         }
+        select{
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            font: normal normal normal 16px Roboto;
+            letter-spacing: 0px;
+            color: #42515f;
+            background-color: transparent;
+        }
     </style>
 </head>
 <body>
@@ -128,16 +138,14 @@
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
             </div>
-        </form>
-    </div>
-    <div class="row-content">
-        <label class="label text" for="profile">Profile Image</label>
-        <div class="profile-radio-content">
-            <label>
+            <div class="row-content">
+                 <label class="label text" for="profile">Profile Image</label>
+                  <div class="profile-radio-content">
+             <label>
                 <input type="radio" id="profile1" name="profile" value="..assets/profile-images/Ellipse -3.png" required>
-                <img class="profile" id='image1' src="..assets/profile-images/Ellipse -3.png">
-            </label>
-            <label>
+                <img class="profile" id='image1' src="../assets/profile-images/Ellipse -3.png">
+             </label>
+              <label>
                 <input type="radio" id="profile2" name="profile" value="..assets/profile-images/Ellipse 1.png" required>
                 <img class="profile" id='image2' src="..assets/profile-images/Ellipse 1.png">
             </label>
@@ -180,5 +188,66 @@
             <output class="salary-output text" for="salary">400000</output>
         </div>
     </div>
+    <div>
+        <label class="label text" for="startDate">Start Date</label>
+        <div>
+            <select id="day" name="Day">
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <select id="month" name="Month">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select id="year" name="Year">
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+            </select>
+        </div>
+    </div>
+</form>
+</div>
 </body>
 </html>
