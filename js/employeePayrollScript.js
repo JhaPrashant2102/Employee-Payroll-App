@@ -1,3 +1,4 @@
+
 class EmployeePayrollData{
     get id(){
         return this._id;
@@ -48,7 +49,14 @@ class EmployeePayrollData{
         return this._startDate;
     }
     set startDate(startDate){
-        this._startDate = startDate
+        if(startDate.getTime()<=(new Date()).getTime()
+        &&((((new Date()).getTime())-(startDate.getTime()))/(1000*60*60*24))<=30 ){
+            this._startDate = startDate;
+           }
+        else{
+            //alert("Incorrect date");
+            throw "Date is incorrect: "//+startDate.toLocaleDateString("en-US");
+        }
     }
     toString(){
         const options = { year: 'numeric',month: 'long',day: 'numeric',weekday:'long'}
@@ -57,15 +65,10 @@ class EmployeePayrollData{
     }
 
 }
-function updateSalary(){
-const salary = document.querySelector('#salary')
-const output = document.querySelector('.salary-output')
-output.textContent = salary.value;
-salary.addEventListener('input',function(){
-    output.textContent = salary.value;
-})
-}
+
+/*
 function save(){
     let name = document.getElementById(name).value;
     let gender = document.getElementById(gender).value;
 }
+*/
