@@ -56,16 +56,16 @@ const createEmployeePayroll = ()=>{
     }
     employeePayrollData.profilePic=getSelectedValues('[name=profile]').pop();
     employeePayrollData.gender=getSelectedValues('[name=gender]').pop();
-    employeePayrollData.department=getSelectedValues('[name=department]').pop();
-    employeePayrollData.salary=getSelectedValues('[name=salary]').pop();
-    employeePayrollData.note=getSelectedValues('[name=note]').pop();
+    employeePayrollData.department=getSelectedValues('[name=department]');
+    employeePayrollData.salary=getSelectedValues('[name=salary]');
+    employeePayrollData.note=getSelectedValues('[name=note]');
     let date = getInputValueById('#day')+" "+getInputValueById('#month')+" "+getInputValueById('#year');
     employeePayrollData.date = Date.parse(date);
     alert(employeePayrollData.toString())
     return employeePayrollData
 }
 const getSelectedValues=(propertyValue)=>{
-    let allItems = document.querySelectorAll(propertyValue)
+    let allItems = document.querySelectorAll(propertyValue)//not query selector
     let selItems = new Array();
     allItems.forEach(item=>{
         if(item.checked)
