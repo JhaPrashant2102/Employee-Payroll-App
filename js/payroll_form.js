@@ -79,10 +79,10 @@ const getInputValueById = (id)=>{
 }
 const getInputElementValue = (id)=>{
     let value = document.getElementById(id).value
+    setValue('#name','');
     return value
 }
 const resetForm = ()=>{
-    setValue('#name','');
     unsetSelectedValues('[name=profile]')
     unsetSelectedValues('[name=gender]')
     unsetSelectedValues('[name=department]')
