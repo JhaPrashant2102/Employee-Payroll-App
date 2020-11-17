@@ -9,6 +9,7 @@
     <title>Employee Payroll</title>
 </head>
 <body>
+    <!--UC1-->
     <header class="header-content header">
         <div class="logo-content">
             <img src="../assets/images/logo.png" alt="">
@@ -26,32 +27,16 @@
             </div>
             <a href="../pages/employeePayrollApp.html" class="add-button"><img src="../assets/icons/add-24px.svg" alt="">Add user</a>
         </div><!---header content--->
-        <table id = "display" class="table">
-            <!--UC3-->
-            <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Department</th>
-                <th>Salary</th>
-                <th>StartDate</th>
-                <th>Actions</th>
-            </tr>
-            <tr>
-                <td><img class="profile" src="../assets/profile-images/Ellipse -2.png"></td>
-                <td>Narayan Mahadevan</td>
-                <td>Male</td>
-                <td><div class="dept-label">HR</div>
-                    <div class="dept-label">FINANCE</div>
-                </td>
-                <td>300000</td>
-                <td>1 Nov 2020</td>
-                <td>
-                    <img id="1" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
-                    <img id="1" onclick="remove(this)" alt="update" src="../assets/icons/create-black-18dp.svg">
-                </td>
-            </tr>
-        </table>
+        <div class="table-main">
+            <table id = "table-display" class="table">
+                <!--UC3-->
+                
+            </table>
+        </div>
     </div>
+    <script src="../js/home.js"></script>
+    <script src="../js/utility.js"></script>
+    <script src="../js/site_properties.js"></script>
+    <script src="../js/employeePayrollScript.js"></script>
 </body>
 </html>
