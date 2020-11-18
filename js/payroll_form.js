@@ -74,8 +74,7 @@ const createEmployeePayroll = ()=>{
             departments.push(departmentsForm[i].value);
     }
     employeePayrollData.department=departments;
-    let ID = JSON.parse(localStorage.getItem("EmployeePayrollList")).length==null?0:JSON.parse(localStorage.getItem("EmployeePayrollList")).length
-    employeePayrollData.id = ID;
+    employeePayrollData.id = new Date().getTime();
     employeePayrollData.salary=document.querySelector("#salary").value;
     employeePayrollData.note=document.getElementById("notes").value;
     let day = getInputValueById('#day')
