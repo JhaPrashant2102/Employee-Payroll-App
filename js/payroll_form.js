@@ -1,3 +1,4 @@
+
 window.addEventListener('DOMContentLoaded',(event)=>{
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error')
@@ -14,19 +15,29 @@ window.addEventListener('DOMContentLoaded',(event)=>{
             }
         });
     const salary = document.querySelector('#salary')
-    const output = document.querySelector('.salary-output')
+    const output = document.querySelector(".salary-output")
     output.textContent = salary.value;
     salary.addEventListener('input',function(){
         output.textContent = salary.value;
     });
-    /*
-    const day = document.getElementById("day").value;
-    const month = document.getElementById("month").value;
-    const year = document.getElementById("year").value;
-    let dateString = year+"-"+month+"-"+day+"T23:59:00Z";
-    date = new Date(dateString);
-    */
-   //TODO
+    let day = document.getElementById("day");
+    let month = document.getElementById("month");
+    let year = document.getElementById("year");
+    let dateError = document.querySelector(".date-error");    
+    day.addEventListener('click',checkDate);
+    month.addEventListener('click',checkDate);
+    year.addEventListener('click',checkDate);
+    function checkDate(){
+        let dateString = year.value+"-"+month.value+"-"+day.value+"T00:00:00Z";
+        date = new Date(dateString);
+        console.log(date);
+        if(date.getTime()<=(new Date()).getTime()
+        &&((((new Date()).getTime())-(date.getTime()))/(1000*60*60*24))<=30 ){
+            dateError.textContent = "";
+        }
+        else 
+        dateError.textContent="Date is invalid";
+    }
 });
 const save = ()=>{
     try{
@@ -56,11 +67,22 @@ const createEmployeePayroll = ()=>{
     }
     employeePayrollData.profilePic=getSelectedValues('[name=profile]').pop();
     employeePayrollData.gender=getSelectedValues('[name=gender]').pop();
-    employeePayrollData.department=getSelectedValues('[name=department]');
-    employeePayrollData.salary=getSelectedValues('[name=salary]');
-    employeePayrollData.note=getSelectedValues('[name=note]');
-    let date = getInputValueById('#day')+" "+getInputValueById('#month')+" "+getInputValueById('#year');
-    employeePayrollData.date = Date.parse(date);
+    let departments = new Array();
+    const departmentsForm = document.getElementsByClassName("checkbox");
+    for(let i=0;i<departmentsForm.length;i++){
+        if(departmentsForm[i].checked)
+            departments.push(departmentsForm[i].value);
+    }
+    employeePayrollData.department=departments;
+    let ID = JSON.parse(localStorage.getItem("EmployeePayrollList")).length==null?0:JSON.parse(localStorage.getItem("EmployeePayrollList")).length
+    employeePayrollData.id = ID;
+    employeePayrollData.salary=document.querySelector("#salary").value;
+    employeePayrollData.note=document.getElementById("notes").value;
+    let day = getInputValueById('#day')
+    let month = getInputValueById('#month')
+    let year = getInputValueById('#year')
+    let dateString = year+"-"+month+"-"+day+"T00:00:00Z";
+    date = new Date(dateString);
     alert(employeePayrollData.toString())
     return employeePayrollData
 }
