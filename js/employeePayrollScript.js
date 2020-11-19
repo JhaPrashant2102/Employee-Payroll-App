@@ -1,4 +1,3 @@
-
 class EmployeePayrollData{
     /*
     constructor(...params){
@@ -60,14 +59,13 @@ class EmployeePayrollData{
         return this._startDate;
     }
     set startDate(startDate){
-        if(startDate.getTime()<=(new Date()).getTime()
-        &&((((new Date()).getTime())-(startDate.getTime()))/(1000*60*60*24))<=30 ){
-            this._startDate = startDate;
-           }
-        else{
-            //alert("Incorrect date");
-            throw "Date is incorrect: "//+startDate.toLocaleDateString("en-US");
-        }
+        let now = new Date();
+        if(startDate>now)
+        throw 'Start Date is a Future Date!'
+        var diff = Math.abs(now.getTime()-startDate.getTime());
+        if(diff/(1000*60*60*24)>30)
+        throw 'Start Date is beyond 30 days!'
+        this._startDate = startDate;
     }
     toString(){
         const options = { year: 'numeric',month: 'numeric',day: 'numeric'}
